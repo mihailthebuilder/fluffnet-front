@@ -39,6 +39,7 @@ function App() {
             })
           }
           type="file"
+          required
         ></input>
 
         <button type="submit">Submit</button>
