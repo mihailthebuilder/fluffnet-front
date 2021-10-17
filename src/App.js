@@ -40,6 +40,8 @@ function App() {
 
         <button type="submit">Submit</button>
       </form>
+
+      <img src={image.preview} />
     </div>
   );
 }
