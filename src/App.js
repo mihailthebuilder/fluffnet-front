@@ -9,8 +9,13 @@ function App() {
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
-  const predictImage = () => {
-    axios.get(requestUrl).then((res) => {
+  const predictImage = (e) => {
+    e.preventDefault();
+
+    let fd = new FormData();
+    fd.append("image", image);
+
+    axios.get(requestUrl, fd).then((res) => {
       if (res.status === 200) {
         setApiResponse(res.data);
         return;
