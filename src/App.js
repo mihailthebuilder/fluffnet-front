@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
 
 function App() {
+  const [image, setImage] = useState({ preview: "", raw: "" });
   const [apiResponse, setApiResponse] = useState("");
 
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
-  useEffect(() => {
+  const predictImage = () => {
     axios.get(requestUrl).then((res) => {
       if (res.status === 200) {
         setApiResponse(res.data);
@@ -18,10 +19,26 @@ function App() {
       setApiResponse("error");
       console.error("Error", res);
     });
-  }, [requestUrl]);
+  };
 
   return (
-    <div className="App">{apiResponse ? apiResponse : "No API response"}</div>
+    <div className="App">
+      <div>{apiResponse ? apiResponse : "No API response"}</div>
+
+      <form onSubmit={predictImage}>
+        <input
+          onChange={(e) =>
+            setImage({
+              preview: URL.createObjectURL(e.target.files[0]),
+              raw: e.target.files[0],
+            })
+          }
+          type="file"
+        ></input>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
 
