@@ -9,6 +9,8 @@ function App() {
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
+  console.log(image);
+
   const predictImage = () => {
     axios.get(requestUrl).then((res) => {
       if (res.status === 200) {
