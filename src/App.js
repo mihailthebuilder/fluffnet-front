@@ -9,13 +9,20 @@ function App() {
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
   useEffect(() => {
-    axios.post(requestUrl).then((res) => {
-      setApiResponse(res.data);
-      console.log(res);
+    axios.get(requestUrl).then((res) => {
+      if (res.status === 200) {
+        setApiResponse(res.data);
+        return;
+      }
+
+      setApiResponse("error");
+      console.error("Error", res);
     });
   }, [requestUrl]);
 
-  return <div className="App">{apiResponse ? "Removed" : apiResponse}</div>;
+  return (
+    <div className="App">{apiResponse ? apiResponse : "No API response"}</div>
+  );
 }
 
 export default App;
