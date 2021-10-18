@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <div>
         {Object.keys(prediction).length > 0
           ? JSON.stringify(prediction)
