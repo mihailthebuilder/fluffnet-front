@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div>
+      <h1>FluffNet</h1>
       <div>
         {Object.keys(prediction).length > 0
           ? JSON.stringify(prediction)
