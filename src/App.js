@@ -13,9 +13,9 @@ function App() {
     e.preventDefault();
 
     let fd = new FormData();
-    fd.append("image", image);
+    fd.append("image", image.raw);
 
-    axios.get(requestUrl, fd).then((res) => {
+    axios.post(requestUrl, fd).then((res) => {
       if (res.status === 200) {
         setApiResponse(res.data);
         return;
