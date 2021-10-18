@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
-  const [apiResponse, setApiResponse] = useState("");
+  const [prediction, setPrediction] = useState({});
 
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
@@ -17,18 +17,21 @@ function App() {
 
     axios.post(requestUrl, fd).then((res) => {
       if (res.status === 200) {
-        setApiResponse(res.data);
+        setPrediction(res.data);
         return;
       }
 
-      setApiResponse("error");
       console.error("Error", res);
     });
   };
 
   return (
     <div className="App">
-      <div>{apiResponse ? apiResponse : "No API response"}</div>
+      <div>
+        {Object.keys(prediction).length > 0
+          ? JSON.stringify(prediction)
+          : "No API response"}
+      </div>
 
       <form onSubmit={predictImage}>
         <input
