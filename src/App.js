@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
-import DefaultImage from "./default-image.jpg";
 
 function App() {
-  const [image, setImage] = useState({ preview: DefaultImage, raw: "" });
+  const [image, setImage] = useState({ preview: "", raw: "" });
   const [prediction, setPrediction] = useState({});
 
   const requestUrl =
@@ -55,7 +54,11 @@ function App() {
           </form>
         </div>
         <div>
-          <img alt="" src={image.preview} />
+          {image.preview ? (
+            <img alt="" src={image.preview} />
+          ) : (
+            <div class="image-placeholder">Image will be shown here </div>
+          )}
         </div>
       </section>
     </div>
