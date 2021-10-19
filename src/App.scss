@@ -31,16 +31,19 @@ h1 {
 }
 
 #main {
-  margin-top: 2rem;
+  margin-top: 5rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  column-gap: 3rem;
 
   p {
     font-size: 2rem;
+    margin-top: 0;
   }
 
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 20rem;
   }
 }
 
