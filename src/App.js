@@ -32,7 +32,7 @@ function App() {
       </nav>
       <h1>FluffNet</h1>
 
-      <section id="main">
+      <section id="hero">
         <div className="main-left">
           <p>
             Upload an image and our 🤖 will tell you if it has something fluffy
@@ -69,6 +69,21 @@ function App() {
             <div className="image-placeholder">Image will be shown here </div>
           )}
         </div>
+      </section>
+
+      <section id="results">
+        <h2>
+          🤖 says...
+          <span className="robot-message">
+            {image.preview
+              ? Object.keys(prediction).length > 0
+                ? prediction.fluffy === "True"
+                  ? "it's fluffy 🧸"
+                  : "it's not fluffy 🪨"
+                : "now click 'dat Run button 🏃‍♀️"
+              : "gimme an image puh-leeeaase 🥺"}
+          </span>
+        </h2>
       </section>
     </div>
   );
