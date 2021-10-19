@@ -27,10 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <h1>FluffNet</h1>
+      <header>
+        <nav>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <h1>FluffNet</h1>
+      </header>
 
       <section id="hero">
         <div className="main-left">
