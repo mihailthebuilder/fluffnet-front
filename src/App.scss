@@ -70,6 +70,16 @@ h1 {
       &:hover {
         filter: brightness(3);
       }
+
+      &:disabled {
+        border-color: grey;
+        color: grey;
+
+        &:hover {
+          filter: none;
+          cursor: not-allowed;
+        }
+      }
     }
 
     .upload-button {
@@ -77,7 +87,7 @@ h1 {
       color: $gunmetal;
     }
 
-    .submit-button {
+    .submit-enabled {
       border-color: $red;
       color: $red;
     }

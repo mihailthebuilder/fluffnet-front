@@ -53,7 +53,11 @@ function App() {
               ></input>
             </label>
 
-            <button className="button submit-button" type="submit">
+            <button
+              className={image.preview ? "button submit-enabled" : "button"}
+              type="submit"
+              disabled={!image.preview}
+            >
               Submit
             </button>
           </form>
