@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <header>
         <nav>
           <a href="#faq">FAQ</a>

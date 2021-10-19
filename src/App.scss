@@ -1,5 +1,9 @@
 @import "./resources/variables.scss";
 
+.App {
+  max-width: 800px;
+}
+
 header {
   font-size: 2rem;
 
@@ -25,6 +29,15 @@ header {
     text-align: center;
     color: $gunmetal;
     line-height: 1em;
+  }
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  p {
+    font-size: 2rem;
   }
 }
 
