@@ -35,7 +35,7 @@ function App() {
       </header>
 
       <section id="hero">
-        <div className="main-left">
+        <div className="hero-left">
           <p>
             Upload an image and our 🤖 will tell you if it has something fluffy
             in it ☁️
@@ -64,7 +64,7 @@ function App() {
             </button>
           </form>
         </div>
-        <div>
+        <div className="hero-right">
           {image.preview ? (
             <img alt="" src={image.preview} />
           ) : (

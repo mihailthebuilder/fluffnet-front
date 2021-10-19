@@ -37,7 +37,7 @@ header {
   grid-template-columns: 2fr 1fr;
   column-gap: 4rem;
 
-  .main-left {
+  .hero-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,7 +159,7 @@ header {
     grid-template-columns: 1fr;
     row-gap: 2rem;
 
-    .main-left {
+    .hero-left {
       p {
         text-align: center;
       }
@@ -173,6 +173,26 @@ header {
           border-width: 2px;
         }
       }
+    }
+
+    .hero-right {
+      text-align: center;
+    }
+
+    .image-placeholder {
+      height: 30vh;
+    }
+
+    img {
+      max-height: 30vh;
+    }
+  }
+
+  #results {
+    margin: 0rem;
+
+    h2 {
+      margin-top: 0.5rem;
     }
   }
 } ;
