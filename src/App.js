@@ -10,9 +10,11 @@ function App() {
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
   const uploadImage = (event) => {
+    const rawFile = event.target.files[0];
+
     setImage({
-      preview: URL.createObjectURL(event.target.files[0]),
-      raw: event.target.files[0],
+      preview: URL.createObjectURL(rawFile),
+      raw: rawFile,
     });
   };
 
