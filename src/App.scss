@@ -31,11 +31,16 @@ h1 {
 }
 
 #main {
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
 
   p {
     font-size: 2rem;
+  }
+
+  img {
+    width: 100%;
   }
 }
 

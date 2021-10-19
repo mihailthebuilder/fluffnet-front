@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
+import DefaultImage from "./default-image.jpg";
 
 function App() {
-  const [image, setImage] = useState({ preview: "", raw: "" });
+  const [image, setImage] = useState({ preview: DefaultImage, raw: "" });
   const [prediction, setPrediction] = useState({});
 
   const requestUrl =
