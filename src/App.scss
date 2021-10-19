@@ -128,10 +128,19 @@ h1 {
 
 #faq {
   margin-top: 4rem;
+  font-size: 1.8rem;
+
   h2 {
-    font-size: 3rem;
     text-align: center;
     color: $gunmetal;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
   }
 }
 
