@@ -40,7 +40,7 @@ function App() {
           </p>
           <form onSubmit={predictImage}>
             <label>
-              <span>Label</span>
+              <span className="button upload-button">Upload image</span>
               <input
                 onChange={(e) =>
                   setImage({
@@ -53,7 +53,9 @@ function App() {
               ></input>
             </label>
 
-            <button type="submit">Submit</button>
+            <button className="button submit-button" type="submit">
+              Submit
+            </button>
           </form>
         </div>
         <div>

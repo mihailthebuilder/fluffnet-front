@@ -48,9 +48,26 @@ h1 {
   }
 
   form {
-    label > span,
-    button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+
+    .button {
       font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background: none;
+      border-radius: 7px;
+    }
+
+    .upload-button {
+      border-color: $gunmetal;
+      color: $gunmetal;
+    }
+
+    .submit-button {
+      border-color: $red;
+      color: $red;
     }
 
     input {
