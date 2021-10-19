@@ -26,7 +26,10 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
+      <nav>
+        <a href="#faq">FAQ</a>
+      </nav>
       <h1>FluffNet</h1>
       <div>
         {Object.keys(prediction).length > 0
