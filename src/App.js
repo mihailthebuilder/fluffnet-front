@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
-  const [prediction, setPrediction] = useState({});
+  const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
 
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
@@ -16,6 +16,8 @@ function App() {
       preview: URL.createObjectURL(rawFile),
       raw: rawFile,
     });
+
+    setMessage("quick, send it to me 📨");
   };
 
   const predictImage = (event) => {
@@ -26,7 +28,7 @@ function App() {
 
     axios.post(requestUrl, fd).then((res) => {
       if (res.status === 200) {
-        setPrediction(res.data);
+        setMessage(res.data.fluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨");
         return;
       }
 
@@ -76,15 +78,7 @@ function App() {
       <section id="results">
         <h2>
           🤖 says...
-          <span className="robot-message">
-            {image.preview
-              ? Object.keys(prediction).length > 0
-                ? prediction.fluffy === "True"
-                  ? "it's fluffy 🧸"
-                  : "it's not fluffy 🪨"
-                : "quick, send it to me 📨"
-              : "gimme an image puh-leeeaase 🥺"}
-          </span>
+          <span className="robot-message">{message}</span>
         </h2>
       </section>
 
