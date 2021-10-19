@@ -39,16 +39,19 @@ function App() {
             in it ☁️
           </p>
           <form onSubmit={predictImage}>
-            <input
-              onChange={(e) =>
-                setImage({
-                  preview: URL.createObjectURL(e.target.files[0]),
-                  raw: e.target.files[0],
-                })
-              }
-              type="file"
-              required
-            ></input>
+            <label>
+              <span>Label</span>
+              <input
+                onChange={(e) =>
+                  setImage({
+                    preview: URL.createObjectURL(e.target.files[0]),
+                    raw: e.target.files[0],
+                  })
+                }
+                type="file"
+                required
+              ></input>
+            </label>
 
             <button type="submit">Submit</button>
           </form>
