@@ -34,24 +34,31 @@ function App() {
         <h1>FluffNet</h1>
       </header>
 
-      <section id="main"></section>
+      <section id="main">
+        <div>
+          <p>
+            Upload an image and our 🤖 will tell you if it has something fluffy
+            in it ☁️
+          </p>
+          <form onSubmit={predictImage}>
+            <input
+              onChange={(e) =>
+                setImage({
+                  preview: URL.createObjectURL(e.target.files[0]),
+                  raw: e.target.files[0],
+                })
+              }
+              type="file"
+              required
+            ></input>
 
-      <form onSubmit={predictImage}>
-        <input
-          onChange={(e) =>
-            setImage({
-              preview: URL.createObjectURL(e.target.files[0]),
-              raw: e.target.files[0],
-            })
-          }
-          type="file"
-          required
-        ></input>
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <img alt="" src={image.preview} />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div>
+          <img alt="" src={image.preview} />
+        </div>
+      </section>
     </div>
   );
 }
