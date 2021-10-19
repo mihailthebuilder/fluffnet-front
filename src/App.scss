@@ -2,6 +2,7 @@
 
 .App {
   max-width: 800px;
+  font-size: 2rem;
 }
 
 header {
@@ -142,11 +143,14 @@ header {
 }
 
 @media (max-width: 900px) {
+  .App {
+    font-size: 1.3rem;
+  }
+
   header {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    font-size: 1.5rem;
     padding: 1rem 0;
   }
 
