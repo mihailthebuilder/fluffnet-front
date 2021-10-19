@@ -27,15 +27,14 @@ function App() {
 
   return (
     <div>
-      <nav>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <h1>FluffNet</h1>
-      <div>
-        {Object.keys(prediction).length > 0
-          ? JSON.stringify(prediction)
-          : "No API response"}
-      </div>
+      <header>
+        <nav>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <h1>FluffNet</h1>
+      </header>
+
+      <section id="main"></section>
 
       <form onSubmit={predictImage}>
         <input
