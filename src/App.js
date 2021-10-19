@@ -9,8 +9,15 @@ function App() {
   const requestUrl =
     window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
 
-  const predictImage = (e) => {
-    e.preventDefault();
+  const uploadImage = (event) => {
+    setImage({
+      preview: URL.createObjectURL(event.target.files[0]),
+      raw: event.target.files[0],
+    });
+  };
+
+  const predictImage = (event) => {
+    event.preventDefault();
 
     let fd = new FormData();
     fd.append("image", image.raw);
@@ -43,16 +50,7 @@ function App() {
           <form onSubmit={predictImage}>
             <label>
               <span className="button upload-button">Upload image</span>
-              <input
-                onChange={(e) =>
-                  setImage({
-                    preview: URL.createObjectURL(e.target.files[0]),
-                    raw: e.target.files[0],
-                  })
-                }
-                type="file"
-                required
-              ></input>
+              <input onChange={uploadImage} type="file" required></input>
             </label>
 
             <button
