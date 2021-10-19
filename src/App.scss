@@ -126,6 +126,15 @@ h1 {
   }
 }
 
+#faq {
+  margin-top: 4rem;
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: $gunmetal;
+  }
+}
+
 /*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
