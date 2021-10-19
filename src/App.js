@@ -27,12 +27,19 @@ function App() {
     fd.append("image", image.raw);
 
     axios.post(requestUrl, fd).then((res) => {
-      if (res.status === 200) {
-        setMessage(res.data.fluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨");
+      if (res.status !== 200) {
+        console.error("Error", res);
+
         return;
       }
 
-      console.error("Error", res);
+      const { fluffy, prob } = res.data;
+      const isFluffy = fluffy === "True";
+
+      const conclusion = isFluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨";
+      const confidence = ` (with ${isFluffy ? "x%" : "y%"} confidence)`;
+
+      setMessage(conclusion + confidence);
     });
   };
 
