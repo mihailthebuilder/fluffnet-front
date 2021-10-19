@@ -80,7 +80,7 @@ function App() {
                 ? prediction.fluffy === "True"
                   ? "it's fluffy 🧸"
                   : "it's not fluffy 🪨"
-                : "now click 'dat Run button 🏃‍♀️"
+                : "quick, send it to me 📨"
               : "gimme an image puh-leeeaase 🥺"}
           </span>
         </h2>
