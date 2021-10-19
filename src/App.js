@@ -33,7 +33,7 @@ function App() {
       <h1>FluffNet</h1>
 
       <section id="main">
-        <div>
+        <div className="main-left">
           <p>
             Upload an image and our 🤖 will tell you if it has something fluffy
             in it ☁️
@@ -57,7 +57,7 @@ function App() {
           {image.preview ? (
             <img alt="" src={image.preview} />
           ) : (
-            <div class="image-placeholder">Image will be shown here </div>
+            <div className="image-placeholder">Image will be shown here </div>
           )}
         </div>
       </section>

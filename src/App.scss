@@ -34,11 +34,17 @@ h1 {
   margin-top: 5rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  column-gap: 3rem;
+  column-gap: 4rem;
 
-  p {
-    font-size: 2rem;
-    margin-top: 0;
+  .main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      font-size: 2rem;
+      margin-top: 0;
+    }
   }
 
   img {
