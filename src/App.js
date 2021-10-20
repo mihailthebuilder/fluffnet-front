@@ -54,7 +54,7 @@ function App() {
         let probShown = Math.round(prob * 100);
         if (!isFluffy) probShown = 100 - probShown;
 
-        const conclusion = isFluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨";
+        const conclusion = isFluffy ? "it's fluffy 🧸" : "it's not fluffy 🪨";
         const confidence = ` (with ${probShown}% confidence)`;
 
         setMessage(conclusion + confidence);
@@ -73,14 +73,14 @@ function App() {
         <nav>
           <a href="#faq">FAQ</a>
         </nav>
-        <h1>FluffNet</h1>
+        <h1>☁️ FluffNet ☁️</h1>
       </header>
 
       <section id="hero">
         <div className="hero-left">
           <p>
             Upload an image and our 🤖 will tell you if it has something fluffy
-            in it ☁️
+            in it 🧸.
           </p>
           <form onSubmit={predictImage}>
             <label>
