@@ -31,24 +31,34 @@ function App() {
     let fd = new FormData();
     fd.append("image", image.raw);
 
-    axios.post(requestUrl, fd).then((res) => {
-      if (res.status !== 200) {
+    axios
+      .post(requestUrl, fd)
+      .then((res) => {
+        if (res.status !== 200) {
+          throw { message: "Response status !== 200", res };
+        }
+
+        const { fluffy, prob } = res.data;
+
+        if (fluffy === undefined || prob === undefined)
+          throw { message: "Undefined response", res };
+
+        const isFluffy = fluffy === "True";
+
+        let probShown = Math.round(prob * 100);
+        if (!isFluffy) probShown = 100 - probShown;
+
+        const conclusion = isFluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨";
+        const confidence = ` (with ${probShown}% confidence)`;
+
+        setMessage(conclusion + confidence);
+      })
+      .catch((error) => {
         setMessage("something went wrong - try again please!");
-        console.error("Error", res);
-        return;
-      }
-
-      const { fluffy, prob } = res.data;
-      const isFluffy = fluffy === "True";
-
-      let probShown = Math.round(prob * 100);
-      if (!isFluffy) probShown = 100 - probShown;
-
-      const conclusion = isFluffy ? "it's fluffy ☁️" : "it's not fluffy 🪨";
-      const confidence = ` (with ${probShown}% confidence)`;
-
-      setMessage(conclusion + confidence);
-    });
+        console.error("Message: " + error.message);
+        console.error("Response");
+        console.error(error.res);
+      });
   };
 
   return (
