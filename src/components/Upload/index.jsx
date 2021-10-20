@@ -8,19 +8,29 @@ const Upload = ({ image, setImage, setMessage }) => {
   const uploadImage = (event) => {
     const rawFile = event.target.files[0];
 
+    if (rawFile === undefined) {
+      setImage({ preview: "", raw: "" });
+      setMessage("please give me an image 🖼️");
+      return;
+    }
+
     if (!rawFile.type.includes("image")) {
       setImage({ preview: "", raw: "" });
       setMessage("please give me an image 🖼️");
-    } else if (rawFile.size / 1024 / 1024 >= 10) {
+      return;
+    }
+
+    if (rawFile.size / 1024 / 1024 >= 10) {
       setImage({ preview: "", raw: "" });
       setMessage("upload an image of less than 10 MB");
-    } else {
-      setImage({
-        preview: URL.createObjectURL(rawFile),
-        raw: rawFile,
-      });
-      setMessage("quick, send it to me 📨");
+      return;
     }
+
+    setImage({
+      preview: URL.createObjectURL(rawFile),
+      raw: rawFile,
+    });
+    setMessage("quick, send it to me 📨");
   };
 
   const predictImage = (event) => {
