@@ -5,11 +5,6 @@ import "./index.scss";
 const Upload = ({ image, setImage, setMessage }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const requestUrl =
-    window.location.hostname === "localhost"
-      ? "http://localhost:5000/"
-      : "https://fluffnet-api.herokuapp.com";
-
   const uploadImage = (event) => {
     const rawFile = event.target.files[0];
 
@@ -34,6 +29,11 @@ const Upload = ({ image, setImage, setMessage }) => {
 
     let fd = new FormData();
     fd.append("image", image.raw);
+
+    const requestUrl =
+      window.location.hostname === "localhost"
+        ? "http://localhost:5000/"
+        : "https://fluffnet-api.herokuapp.com";
 
     axios
       .post(requestUrl, fd)
