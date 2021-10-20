@@ -1,0 +1,25 @@
+@import "../../resources/variables.scss";
+
+#results {
+  margin-top: 3rem;
+
+  h2 {
+    font-weight: normal;
+    text-align: center;
+  }
+  .robot-message {
+    display: inline-block;
+    color: $red;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  #results {
+    margin: 0rem;
+
+    h2 {
+      margin-top: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}

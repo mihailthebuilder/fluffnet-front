@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
 import Upload from "./components/Upload";
+import Results from "./components/Results";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
@@ -13,12 +14,7 @@ function App() {
 
       <Upload image={image} setImage={setImage} setMessage={setMessage} />
 
-      <section id="results">
-        <h2>
-          🤖 says...
-          <span className="robot-message">{message}</span>
-        </h2>
-      </section>
+      <Results message={message} />
 
       <section id="faq">
         <h2>FAQ</h2>
