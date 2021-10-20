@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fluffnet-front/static/css/main.902c5d39.chunk.css",
-    "main.js": "/fluffnet-front/static/js/main.2463e303.chunk.js",
-    "main.js.map": "/fluffnet-front/static/js/main.2463e303.chunk.js.map",
+    "main.js": "/fluffnet-front/static/js/main.fa87d69c.chunk.js",
+    "main.js.map": "/fluffnet-front/static/js/main.fa87d69c.chunk.js.map",
     "runtime-main.js": "/fluffnet-front/static/js/runtime-main.06617da5.js",
     "runtime-main.js.map": "/fluffnet-front/static/js/runtime-main.06617da5.js.map",
     "static/js/2.79004e84.chunk.js": "/fluffnet-front/static/js/2.79004e84.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.06617da5.js",
     "static/js/2.79004e84.chunk.js",
     "static/css/main.902c5d39.chunk.css",
-    "static/js/main.2463e303.chunk.js"
+    "static/js/main.fa87d69c.chunk.js"
   ]
 }
