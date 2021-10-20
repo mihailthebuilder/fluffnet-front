@@ -37,13 +37,13 @@ function App() {
       .post(requestUrl, fd)
       .then((res) => {
         if (res.status !== 200) {
-          throw { message: "Response status !== 200", res };
+          throw new Error("Response status !== 200", { res });
         }
 
         const { fluffy, prob } = res.data;
 
         if (fluffy === undefined || prob === undefined)
-          throw { message: "Undefined response", res };
+          throw new Error("Undefined response", { res });
 
         const isFluffy = fluffy === "True";
 
@@ -57,8 +57,7 @@ function App() {
       })
       .catch((error) => {
         setMessage("something went wrong - try again please!");
-        console.error("Message: " + error.message);
-        console.error("Response");
+        console.error(error.message);
         console.error(error.res);
       });
   };
