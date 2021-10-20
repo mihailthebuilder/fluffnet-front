@@ -5,6 +5,7 @@ import axios from "axios";
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
+  const [isLoading, setIsLoading] = useState(false);
 
   const requestUrl =
     window.location.hostname === "localhost"
@@ -31,6 +32,7 @@ function App() {
 
   const predictImage = (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     let fd = new FormData();
     fd.append("image", image.raw);
@@ -56,6 +58,7 @@ function App() {
         const confidence = ` (with ${probShown}% confidence)`;
 
         setMessage(conclusion + confidence);
+        setIsLoading(false);
       })
       .catch((error) => {
         setMessage("something went wrong - try again please!");
@@ -86,11 +89,13 @@ function App() {
             </label>
 
             <button
-              className={image.preview ? "button submit-enabled" : "button"}
+              className={
+                !image.preview || isLoading ? "button" : "button submit-enabled"
+              }
               type="submit"
-              disabled={!image.preview}
+              disabled={!image.preview || isLoading}
             >
-              Submit
+              {isLoading ? "Loading..." : "Submit"}
             </button>
           </form>
         </div>
