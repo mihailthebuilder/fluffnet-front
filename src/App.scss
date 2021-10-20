@@ -153,6 +153,10 @@ header {
     flex-direction: row-reverse;
     justify-content: space-between;
     padding: 1rem 0;
+
+    .title-emoji {
+      display: none;
+    }
   }
 
   #hero {

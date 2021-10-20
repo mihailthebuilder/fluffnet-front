@@ -73,7 +73,10 @@ function App() {
         <nav>
           <a href="#faq">FAQ</a>
         </nav>
-        <h1>☁️ FluffNet ☁️</h1>
+        <h1>
+          <span className="title-emoji">☁️</span> FluffNet{" "}
+          <span className="title-emoji">☁️</span>
+        </h1>
       </header>
 
       <section id="hero">
