@@ -7,7 +7,9 @@ function App() {
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
 
   const requestUrl =
-    window.location.hostname === "localhost" ? "http://localhost:5000/" : "";
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000/"
+      : "https://fluffnet-api.herokuapp.com";
 
   const uploadImage = (event) => {
     const rawFile = event.target.files[0];
