@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/fluffnet-front/static/css/main.737c247d.chunk.css",
-    "main.js": "/fluffnet-front/static/js/main.9e55e580.chunk.js",
-    "main.js.map": "/fluffnet-front/static/js/main.9e55e580.chunk.js.map",
+    "main.js": "/fluffnet-front/static/js/main.d13e9a46.chunk.js",
+    "main.js.map": "/fluffnet-front/static/js/main.d13e9a46.chunk.js.map",
     "runtime-main.js": "/fluffnet-front/static/js/runtime-main.06617da5.js",
     "runtime-main.js.map": "/fluffnet-front/static/js/runtime-main.06617da5.js.map",
-    "static/js/2.08b45562.chunk.js": "/fluffnet-front/static/js/2.08b45562.chunk.js",
-    "static/js/2.08b45562.chunk.js.map": "/fluffnet-front/static/js/2.08b45562.chunk.js.map",
+    "static/js/2.79004e84.chunk.js": "/fluffnet-front/static/js/2.79004e84.chunk.js",
+    "static/js/2.79004e84.chunk.js.map": "/fluffnet-front/static/js/2.79004e84.chunk.js.map",
     "index.html": "/fluffnet-front/index.html",
     "static/css/main.737c247d.chunk.css.map": "/fluffnet-front/static/css/main.737c247d.chunk.css.map",
-    "static/js/2.08b45562.chunk.js.LICENSE.txt": "/fluffnet-front/static/js/2.08b45562.chunk.js.LICENSE.txt",
+    "static/js/2.79004e84.chunk.js.LICENSE.txt": "/fluffnet-front/static/js/2.79004e84.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/fluffnet-front/static/media/PatrickHand-Regular.17a73bce.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.06617da5.js",
-    "static/js/2.08b45562.chunk.js",
+    "static/js/2.79004e84.chunk.js",
     "static/css/main.737c247d.chunk.css",
-    "static/js/main.9e55e580.chunk.js"
+    "static/js/main.d13e9a46.chunk.js"
   ]
 }
