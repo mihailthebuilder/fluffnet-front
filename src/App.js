@@ -61,7 +61,7 @@ function App() {
         setIsLoading(false);
       })
       .catch((error) => {
-        setMessage("something went wrong - try again please!");
+        setMessage("something went wrong 😵 try again please!");
         console.error(error.message);
         console.error(error.res);
       });
