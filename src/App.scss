@@ -121,6 +121,7 @@ header {
     text-align: center;
   }
   .robot-message {
+    display: inline-block;
     color: $red;
   }
 }
@@ -194,9 +195,6 @@ header {
     h2 {
       margin-top: 0.5rem;
       font-size: 1.5rem;
-      .robot-message {
-        display: inline-block;
-      }
     }
   }
 
