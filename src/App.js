@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
+import Header from "./components/Header";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
@@ -69,15 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <nav>
-          <a href="#faq">FAQ</a>
-        </nav>
-        <h1>
-          <span className="title-emoji">☁️</span> FluffNet{" "}
-          <span className="title-emoji">☁️</span>
-        </h1>
-      </header>
+      <Header />
 
       <section id="hero">
         <div className="hero-left">

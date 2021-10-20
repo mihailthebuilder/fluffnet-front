@@ -1,0 +1,40 @@
+@import "../../resources/variables.scss";
+
+header {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
+  h1 {
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    color: $gunmetal;
+    line-height: 1em;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    .title-emoji {
+      display: none;
+    }
+  }
+}
