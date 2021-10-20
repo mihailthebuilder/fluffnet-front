@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
+import Compressor from "compressorjs";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
@@ -32,8 +33,8 @@ function App() {
 
     axios.post(requestUrl, fd).then((res) => {
       if (res.status !== 200) {
+        setMessage("something went wrong - try again please!");
         console.error("Error", res);
-
         return;
       }
 
