@@ -141,6 +141,14 @@ function App() {
             <a href="https://www.linkedin.com/in/mihailmarian/">LinkedIn</a>.
           </p>
         </div>
+        <div className="question">
+          <h3>Can I contact you about anything else?</h3>
+          <p>
+            Sure! I'm always open to talking to people about deep learning. Just
+            send me a message on{" "}
+            <a href="https://www.linkedin.com/in/mihailmarian/">LinkedIn</a>.
+          </p>
+        </div>
       </section>
     </div>
   );
