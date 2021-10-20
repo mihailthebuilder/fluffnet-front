@@ -12,12 +12,16 @@ function App() {
   const uploadImage = (event) => {
     const rawFile = event.target.files[0];
 
-    setImage({
-      preview: URL.createObjectURL(rawFile),
-      raw: rawFile,
-    });
-
-    setMessage("quick, send it to me 📨");
+    if (!rawFile.type.includes("image")) {
+      setMessage("please give me an image 🖼️");
+      setImage({});
+    } else {
+      setImage({
+        preview: URL.createObjectURL(rawFile),
+        raw: rawFile,
+      });
+      setMessage("quick, send it to me 📨");
+    }
   };
 
   const predictImage = (event) => {
