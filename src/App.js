@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.scss";
 import axios from "axios";
-import Compressor from "compressorjs";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
