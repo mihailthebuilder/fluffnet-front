@@ -54,7 +54,7 @@ function App() {
         let probShown = Math.round(prob * 100);
         if (!isFluffy) probShown = 100 - probShown;
 
-        const conclusion = isFluffy ? "it's fluffy 🧸" : "it's not fluffy 🪨";
+        const conclusion = isFluffy ? "it's fluffy 🧸" : "it's not fluffy 🔨";
         const confidence = ` (with ${probShown}% confidence)`;
 
         setMessage(conclusion + confidence);
