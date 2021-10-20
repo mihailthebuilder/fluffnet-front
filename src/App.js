@@ -14,8 +14,11 @@ function App() {
     const rawFile = event.target.files[0];
 
     if (!rawFile.type.includes("image")) {
+      setImage({ preview: "", raw: "" });
       setMessage("please give me an image 🖼️");
-      setImage({});
+    } else if (rawFile.size / 1024 / 1024 >= 10) {
+      setImage({ preview: "", raw: "" });
+      setMessage("upload an image of less than 10 MB");
     } else {
       setImage({
         preview: URL.createObjectURL(rawFile),
