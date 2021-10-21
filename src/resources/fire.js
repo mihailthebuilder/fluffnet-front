@@ -38,7 +38,12 @@ const saveFeedback = (fileObj, prediction, correct) => {
 
   const storageRef = ref(storage, fileName);
   uploadBytes(storageRef, fileObj).then(() => {
-    addDoc(collection(db, "feedback"), { fileName, prediction, correct })
+    addDoc(collection(db, "feedback"), {
+      fileName,
+      prediction,
+      correct,
+      timestamp: new Date(),
+    })
       .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
       })
