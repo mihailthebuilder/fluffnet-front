@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const Results = ({ message }) => (
+const Response = ({ message }) => (
   <section id="results">
     <h2>
       🤖 says...
@@ -9,4 +9,4 @@ const Results = ({ message }) => (
   </section>
 );
 
-export default Results;
+export default Response;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
 import Upload from "./components/Upload";
-import Results from "./components/Results";
+import Response from "./components/Response";
 import Faq from "./components/Faq";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
       <Upload image={image} setImage={setImage} setMessage={setMessage} />
 
-      <Results message={message} />
+      <Response message={message} />
 
       <Faq />
     </div>
