@@ -25,8 +25,9 @@ function App() {
 
       <Response message={message} />
 
-      {(prediction["prob"] && image.raw) ||
-        (true && <Feedback prediction={prediction} rawImage={image.raw} />)}
+      {prediction["prob"] && image.raw && (
+        <Feedback prediction={prediction} rawImage={image.raw} />
+      )}
 
       <Faq />
     </div>
