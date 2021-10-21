@@ -12,7 +12,10 @@ const Faq = () => (
     </div>
     <div className="question">
       <h3>Do you store the images I upload?</h3>
-      <p>Nope.</p>
+      <p>
+        Only if you click the <b>Correct</b>/<b>Incorrect</b> buttons. In that
+        case, we'll use your feedback to make the model more accurate.
+      </p>
     </div>
     <div className="question">
       <h3>
