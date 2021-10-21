@@ -5,6 +5,7 @@ import Upload from "./components/Upload";
 import Response from "./components/Response";
 import Faq from "./components/Faq";
 import Feedback from "./components/Feedback";
+import "./resources/fire";
 
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });

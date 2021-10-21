@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./index.scss";
+import { uploadFile } from "../../resources/fire";
 
 const Feedback = ({ prediction, rawImage }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const sendFeedback = (event) => {
-    console.log(event.target.value);
     setSubmitted(true);
+    uploadFile(rawImage);
+    console.log(event.target.value);
   };
 
   return (
