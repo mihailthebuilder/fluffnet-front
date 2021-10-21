@@ -36,6 +36,7 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
   const predictImage = (event) => {
     event.preventDefault();
     setIsLoading(true);
+    setMessage("analysing the image, might take up to 2 minutes ⏳");
 
     let fd = new FormData();
     fd.append("image", image.raw);
