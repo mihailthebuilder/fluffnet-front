@@ -2,26 +2,26 @@ import { useState } from "react";
 import axios from "axios";
 import "./index.scss";
 
-const Upload = ({ image, setImage, setMessage }) => {
+const Upload = ({ image, setImage, setMessage, setPrediction }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const uploadImage = (event) => {
+    setImage({ preview: "", raw: "" });
+    setPrediction({});
+
     const rawFile = event.target.files[0];
 
     if (rawFile === undefined) {
-      setImage({ preview: "", raw: "" });
       setMessage("please give me an image 🖼️");
       return;
     }
 
     if (!rawFile.type.includes("image")) {
-      setImage({ preview: "", raw: "" });
       setMessage("please give me an image 🖼️");
       return;
     }
 
     if (rawFile.size / 1024 / 1024 >= 10) {
-      setImage({ preview: "", raw: "" });
       setMessage("upload an image of less than 10 MB");
       return;
     }
@@ -65,6 +65,7 @@ const Upload = ({ image, setImage, setMessage }) => {
         const conclusion = isFluffy ? "it's fluffy 🧸" : "it's not fluffy 🔨";
         const confidence = ` (with ${probShown}% confidence)`;
 
+        setPrediction({ fluffy, prob });
         setMessage(conclusion + confidence);
         setIsLoading(false);
       })
