@@ -8,15 +8,31 @@
 
     .left {
       justify-self: end;
+      color: $dark-green;
+      border-color: $dark-green;
     }
 
     .right {
       justify-self: start;
+      color: $carmine;
+      border-color: $carmine;
     }
   }
 
   .note {
     font-size: 0.7em;
     text-align: center;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  #feedback {
+    .buttons-container {
+      column-gap: 1rem;
+    }
+
+    .note {
+      font-size: 0.9em;
+    }
   }
 }
