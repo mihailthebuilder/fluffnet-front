@@ -1,1 +1,23 @@
 @import "../../resources/variables.scss";
+
+#feedback {
+  .buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+
+    button {
+      width: 10rem;
+      font-size: inherit;
+      cursor: pointer;
+
+      &.left {
+        justify-self: end;
+      }
+
+      &.right {
+        justify-self: start;
+      }
+    }
+  }
+}
