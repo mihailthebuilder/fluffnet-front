@@ -13,22 +13,21 @@ const Feedback = ({ prediction, rawImage }) => {
   return (
     <section id="feedback">
       {submitted ? (
-        <h2 className="feedback-sent">Thank you for the feedback 🙏</h2>
+        <p className="feedback-sent">Thank you for the feedback 🙏</p>
       ) : (
         <>
-          <h2>Was the 🤖 correct?</h2>
+          <div className="buttons-container">
+            <button onClick={sendFeedback} value="correct">
+              Correct
+            </button>
+            <button onClick={sendFeedback} value="incorrect">
+              Incorrect
+            </button>
+          </div>
           <p className="note">
             We will store the photo and the 🤖's results if you answer this. See
             the <a href="#faq">FAQs</a> for more.
           </p>
-          <div className="buttons-container">
-            <button onClick={sendFeedback} value="correct">
-              Yes
-            </button>
-            <button onClick={sendFeedback} value="incorrect">
-              No
-            </button>
-          </div>
         </>
       )}
     </section>
