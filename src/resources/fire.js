@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -34,8 +34,10 @@ const uploadFile = (fileObj) => {
   const extension = oldFileName.substring(oldFileName.lastIndexOf("."));
   const newFileName = randomName(20) + extension;
 
-  const fileRef = ref(storage, newFileName);
-  console.log(fileRef);
+  const storageRef = ref(storage, newFileName);
+  uploadBytes(storageRef, fileObj).then(() => {
+    console.log(snapshot);
+  });
 };
 
 export { uploadFile };
