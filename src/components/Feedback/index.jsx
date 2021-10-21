@@ -19,13 +19,17 @@ const Feedback = ({ prediction, rawImage }) => {
           <div className="buttons-container">
             <button
               type="button"
-              className="left"
+              className="button left"
               onClick={sendFeedback}
               value="correct"
             >
               Correct
             </button>
-            <button className="right" onClick={sendFeedback} value="incorrect">
+            <button
+              className="button right"
+              onClick={sendFeedback}
+              value="incorrect"
+            >
               Incorrect
             </button>
           </div>

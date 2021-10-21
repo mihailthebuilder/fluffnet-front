@@ -5,9 +5,40 @@
   font-size: 2rem;
 }
 
+.button {
+  font-size: inherit;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  background: none;
+  border-radius: 7px;
+  border-style: solid;
+  border-width: 3px;
+  width: 12rem;
+  text-align: center;
+
+  &:hover {
+    filter: brightness(3);
+  }
+
+  &:disabled {
+    border-color: grey;
+    color: grey;
+
+    &:hover {
+      filter: none;
+      cursor: not-allowed;
+    }
+  }
+}
+
 @media (max-width: $mobile-width) {
   .App {
     font-size: 1.2rem;
+  }
+
+  .button {
+    width: 100%;
+    border-width: 2px;
   }
 
   #faq {
