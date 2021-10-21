@@ -7,16 +7,16 @@ const Feedback = ({ prediction, rawImage }) => {
 
   const sendFeedback = (event) => {
     console.log(event.target.value);
+    setSubmitted(true);
   };
 
   return (
     <section id="feedback">
-      <h2>Was the 🤖 correct?</h2>
-
       {submitted ? (
-        <p className="feedback-sent">Thank you for the feedback 🙏</p>
+        <h2 className="feedback-sent">Thank you for the feedback 🙏</h2>
       ) : (
         <>
+          <h2>Was the 🤖 correct?</h2>
           <p className="note">
             We will store the photo and the 🤖's results if you answer this. See
             the <a href="#faq">FAQs</a> for more.
