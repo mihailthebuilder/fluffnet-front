@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
@@ -14,7 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+const db = getFirestore();
 
 // generates new name for the image
 const randomName = (length) => {
@@ -27,17 +29,23 @@ const randomName = (length) => {
   return result;
 };
 
-const uploadFile = (fileObj) => {
+const saveFeedback = (fileObj, prediction, correct) => {
   const storage = getStorage();
 
-  const oldFileName = fileObj.name;
-  const extension = oldFileName.substring(oldFileName.lastIndexOf("."));
-  const newFileName = randomName(20) + extension;
+  let fileName = fileObj.name;
+  const extension = fileName.substring(fileName.lastIndexOf("."));
+  fileName = randomName(20) + extension;
 
-  const storageRef = ref(storage, newFileName);
+  const storageRef = ref(storage, fileName);
   uploadBytes(storageRef, fileObj).then(() => {
-    console.log(snapshot);
+    addDoc(collection(db, "feedback"), { fileName, prediction, correct })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   });
 };
 
-export { uploadFile };
+export { saveFeedback };
