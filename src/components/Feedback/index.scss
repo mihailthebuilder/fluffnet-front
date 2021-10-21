@@ -7,9 +7,17 @@
     column-gap: 4rem;
 
     button {
-      width: 10rem;
+      width: 13rem;
       font-size: inherit;
       cursor: pointer;
+      padding: 0.2em 0;
+      background: none;
+      border-style: solid;
+      border-width: 2px;
+
+      &:hover {
+        filter: brightness(3);
+      }
 
       &.left {
         justify-self: end;
