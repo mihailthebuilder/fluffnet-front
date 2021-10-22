@@ -7,6 +7,19 @@ Frontend for a web app that can predict whether an image has something fluffy in
 - [here](https://github.com/mihailthebuilder/fluffnet) for info and source code on the backend
 - [here](https://mihailthebuilder.github.io/fluffnet-front) for the live site
 
+## Table of contents
+
+- [Fluffnet frontend](#fluffnet-frontend)
+  - [Intro](#intro)
+  - [Table of contents](#table-of-contents)
+  - [Architecture](#architecture)
+  - [User flow](#user-flow)
+    - [Upload image](#upload-image)
+    - [Submit image](#submit-image)
+    - [Provide feedback](#provide-feedback)
+  - [Other features](#other-features)
+  - [Todos](#todos)
+
 ## Architecture
 
 The website is a simple React SPA made up of 5 main components that also serve as the sections of the site:
