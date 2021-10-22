@@ -9,7 +9,7 @@ Frontend for a web app that can predict whether an image has something fluffy in
 
 ## Architecture
 
-The frontend is a simple React SPA made up of 5 main components:
+The website is a simple React SPA made up of 5 main components that also serve as the sections of the site:
 
 - Header - the website title and navbar
 - Upload - where you upload an image and submit it to the predictive model
@@ -17,7 +17,21 @@ The frontend is a simple React SPA made up of 5 main components:
 - Feedback - user can provide feedback on the accuracy of the model
 - Faq - FAQ section
 
-## UX flow
+## User flow
+
+### Upload image
+
+The user journey starts with uploading an image to the web app. There are a few checks on the uploaded file to make sure we don't send redundant requests to the backend. If the file meets the specifications, the previously-disabled `Submit` button becomes enabled and the user can move on to the next phase. If it doesn't, there are 3 things that happen:
+
+1. The button remains disabled
+2. A warning is shown to the user in the `Response` section
+3. All the previous data (uploaded image and resulting predictions) are removed
+
+### Submit image
+
+### Provide feedback
+
+## Other features
 
 ## Todos
 
