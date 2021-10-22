@@ -4,7 +4,7 @@
 
 Frontend for a web app that can predict whether an image has something fluffy in it. Go...
 
-- [here](https://github.com/mihailthebuilder/fluffnet) for info and source code on the backend
+- [here](https://github.com/mihailthebuilder/fluffnet) for info and source code on the Flask backend that stores the predictive model
 - [here](https://mihailthebuilder.github.io/fluffnet-front) for the live site
 
 ## Table of contents
