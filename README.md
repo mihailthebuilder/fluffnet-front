@@ -32,7 +32,7 @@ The frontend is a simple, standalone React SPA made up of 5 main components that
 
 The website connects to 3 backend services:
 
-- a Flask project deployed on Heroku which holds the predictive model
+- a Flask API deployed on Heroku which holds the predictive model
 - a Firebase Storage service that stores images sent by the user in their feedback
 - a Firebase Firestore service that stores all the data outside of the images sent by the user in their feedback
 
@@ -50,9 +50,18 @@ The user journey starts with uploading an image to the web app. There are a few 
 
 ### Submit image
 
+When the user clicks the `Submit` button, the uploaded image is sent to the Flask API that analyses whether it has something fluffy in it. A temporary message is shown in the `Response` section while we're waiting for the response from the backend. Once we receive it, the `Response` section is updated with the prediction and the `Feedback` section becomes visible.
+
 ### Provide feedback
 
+In the `Feedback` section, the user can tell the web app whether the prediction was correct. If they decide to provide the feedback, the web app connects to 2 Firebase services to store the data:
+
+1. Cloud Storage for the images
+2. Firestore for everything else
+
 ## Other features
+
+The frontend looks great on desktop and mobile devices as well.
 
 ## Todos
 
