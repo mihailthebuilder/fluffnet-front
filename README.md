@@ -22,13 +22,21 @@ Frontend for a web app that can predict whether an image has something fluffy in
 
 ## Architecture
 
-The website is a simple React SPA made up of 5 main components that also serve as the sections of the site:
+The frontend is a simple, standalone React SPA made up of 5 main components that also serve as the sections for the site:
 
 - Header - the website title and navbar
 - Upload - where you upload an image and submit it to the predictive model
 - Response - where the prediction is displayed to the user
 - Feedback - user can provide feedback on the accuracy of the model
 - Faq - FAQ section
+
+The website connects to 3 backend services:
+
+- a Flask project deployed on Heroku which holds the predictive model
+- a Firebase Storage service that stores images sent by the user in their feedback
+- a Firebase Firestore service that stores all the data outside of the images sent by the user in their feedback
+
+The styling was done in Sass.
 
 ## User flow
 
