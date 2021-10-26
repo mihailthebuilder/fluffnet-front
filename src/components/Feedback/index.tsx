@@ -36,6 +36,7 @@ const Feedback = ({
               Correct
             </button>
             <button
+              type="button"
               className="button right"
               onClick={sendFeedback}
               value="incorrect"
