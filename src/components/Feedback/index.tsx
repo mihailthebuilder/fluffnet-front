@@ -2,7 +2,13 @@ import { useState } from "react";
 import "./index.scss";
 import { saveFeedback } from "../../resources/fire";
 
-const Feedback = ({ prediction, rawImage }) => {
+const Feedback = ({
+  prediction,
+  rawImage,
+}: {
+  prediction: Prediction;
+  rawImage: string;
+}) => {
   const [submitted, setSubmitted] = useState(false);
 
   const sendFeedback = (event) => {
