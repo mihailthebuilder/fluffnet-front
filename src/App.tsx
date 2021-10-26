@@ -7,10 +7,14 @@ import Faq from "./components/Faq";
 import Feedback from "./components/Feedback";
 import "./resources/fire";
 
+interface Prediction {
+  prob: string;
+}
+
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
-  const [prediction, setPrediction] = useState({});
+  const [prediction, setPrediction] = useState<Prediction | null>(null);
 
   return (
     <div className="App">
@@ -25,7 +29,7 @@ function App() {
 
       <Response message={message} />
 
-      {prediction["prob"] && image.raw && (
+      {prediction && image.raw && (
         <Feedback prediction={prediction} rawImage={image.raw} />
       )}
 
