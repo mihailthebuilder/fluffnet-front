@@ -1,6 +1,10 @@
 import "./index.scss";
 
-const Response = ({ message }) => (
+type AppProps = {
+  message: string;
+};
+
+const Response = ({ message }: AppProps) => (
   <section id="results">
     <h2>
       🤖 says...
