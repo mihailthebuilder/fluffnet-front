@@ -1,0 +1,3 @@
+interface Prediction {
+  prob: string;
+}

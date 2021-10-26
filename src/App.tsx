@@ -7,10 +7,6 @@ import Faq from "./components/Faq";
 import Feedback from "./components/Feedback";
 import "./resources/fire";
 
-interface Prediction {
-  prob: string;
-}
-
 function App() {
   const [image, setImage] = useState({ preview: "", raw: "" });
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
