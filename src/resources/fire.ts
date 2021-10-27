@@ -19,7 +19,7 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 
 // generates new name for the image
-const randomName = (length) => {
+const randomName = (length: number) => {
   let result = "";
   let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   let charactersLength = characters.length;
@@ -29,7 +29,11 @@ const randomName = (length) => {
   return result;
 };
 
-const saveFeedback = (fileObj, prediction, correct) => {
+const saveFeedback = (
+  fileObj: File,
+  prediction: Prediction,
+  correct: boolean
+) => {
   const storage = getStorage();
 
   let fileName = fileObj.name;
