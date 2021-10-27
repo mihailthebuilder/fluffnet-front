@@ -1,10 +1,6 @@
-import { useState, MouseEvent } from "react";
+import { useState } from "react";
 import "./index.scss";
 import { saveFeedback } from "../../resources/fire";
-
-type HTMLElementEvent<T extends HTMLButtonElement> = MouseEvent & {
-  target: T;
-};
 
 const Feedback = ({
   prediction,
@@ -15,9 +11,9 @@ const Feedback = ({
 }) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const sendFeedback = (event: HTMLElementEvent<HTMLButtonElement>) => {
+  const sendFeedback = (correct: boolean) => {
     setSubmitted(true);
-    saveFeedback(rawImage, prediction, event.target.value === "correct");
+    saveFeedback(rawImage, prediction, correct);
   };
 
   return (
@@ -30,16 +26,14 @@ const Feedback = ({
             <button
               type="button"
               className="button left"
-              onClick={sendFeedback}
-              value="correct"
+              onClick={() => sendFeedback(true)}
             >
               Correct
             </button>
             <button
               type="button"
               className="button right"
-              onClick={sendFeedback}
-              value="incorrect"
+              onClick={() => sendFeedback(false)}
             >
               Incorrect
             </button>
