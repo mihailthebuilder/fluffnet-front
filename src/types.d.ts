@@ -5,4 +5,4 @@ type Image = {
 
 type Prediction = {
   prob: string;
-};
+} | null;
