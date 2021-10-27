@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, Dispatch } from "react";
 import axios from "axios";
 import "./index.scss";
 
-const Upload = ({ image, setImage, setMessage, setPrediction }) => {
+type Props = {
+  image: Image;
+  setImage: Dispatch<React.SetStateAction<Image>>;
+  setMessage: Dispatch<React.SetStateAction<string>>;
+  setPrediction: Dispatch<React.SetStateAction<Prediction>>;
+};
+
+const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const uploadImage = (event) => {
