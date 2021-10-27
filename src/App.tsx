@@ -8,7 +8,7 @@ import Feedback from "./components/Feedback";
 import "./resources/fire";
 
 function App() {
-  const [image, setImage] = useState({ preview: "", raw: "" });
+  const [image, setImage] = useState<Image>(null);
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
   const [prediction, setPrediction] = useState<Prediction | null>(null);
 
@@ -25,7 +25,7 @@ function App() {
 
       <Response message={message} />
 
-      {prediction && image.raw && (
+      {prediction && image && (
         <Feedback prediction={prediction} rawImage={image.raw} />
       )}
 

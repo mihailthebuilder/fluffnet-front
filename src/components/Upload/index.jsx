@@ -6,20 +6,15 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const uploadImage = (event) => {
-    setImage({ preview: "", raw: "" });
+    setImage(null);
     setPrediction({});
+    setMessage("please give me an image 🖼️");
 
     const rawFile = event.target.files[0];
 
-    if (rawFile === undefined) {
-      setMessage("please give me an image 🖼️");
-      return;
-    }
+    if (!rawFile) return;
 
-    if (!rawFile.type.includes("image")) {
-      setMessage("please give me an image 🖼️");
-      return;
-    }
+    if (!rawFile.type.includes("image")) return;
 
     if (rawFile.size / 1024 / 1024 >= 10) {
       setMessage("upload an image of less than 10 MB");
@@ -91,18 +86,16 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
           </label>
 
           <button
-            className={
-              !image.preview || isLoading ? "button" : "button submit-enabled"
-            }
+            className={!image || isLoading ? "button" : "button submit-enabled"}
             type="submit"
-            disabled={!image.preview || isLoading}
+            disabled={!image || isLoading}
           >
             {isLoading ? "Loading..." : "Submit"}
           </button>
         </form>
       </div>
       <div className="hero-right">
-        {image.preview ? (
+        {image ? (
           <img alt="" src={image.preview} />
         ) : (
           <div className="image-placeholder">Image will be shown here </div>

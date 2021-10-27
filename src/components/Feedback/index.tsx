@@ -7,7 +7,7 @@ const Feedback = ({
   rawImage,
 }: {
   prediction: Prediction;
-  rawImage: string;
+  rawImage: File;
 }) => {
   const [submitted, setSubmitted] = useState(false);
 
