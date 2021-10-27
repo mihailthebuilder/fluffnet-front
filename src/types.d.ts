@@ -1,3 +1,3 @@
-interface Prediction {
+type Prediction = {
   prob: string;
-}
+};
