@@ -10,7 +10,7 @@ import "./resources/fire";
 function App() {
   const [image, setImage] = useState<ImageState>(null);
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
-  const [prediction, setPrediction] = useState<Prediction>(null);
+  const [prediction, setPrediction] = useState<PredictionState>(null);
 
   return (
     <div className="App">

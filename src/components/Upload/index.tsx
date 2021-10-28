@@ -6,7 +6,7 @@ type Props = {
   image: ImageState;
   setImage: StateSetter<ImageState>;
   setMessage: StateSetter<string>;
-  setPrediction: StateSetter<Prediction>;
+  setPrediction: StateSetter<PredictionState>;
 };
 
 const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
@@ -51,10 +51,10 @@ const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
         : "https://fluffnet-api.herokuapp.com";
 
     axios
-      .post(requestUrl, fd)
+      .post<Prediction>(requestUrl, fd)
       .then((res) => {
         if (res.status !== 200) {
-          throw new Error("Response status !== 200", { res });
+          throw new Error("Response status !== 200");
         }
 
         const { fluffy, prob } = res.data;
