@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import "./index.scss";
 
@@ -12,14 +12,16 @@ type Props = {
 const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const uploadImage = (event: ChangeEvent) => {
+  const uploadImage = (event: ChangeEvent<HTMLInputElement>) => {
     setImage(null);
     setPrediction(null);
     setMessage("please give me an image 🖼️");
 
-    const rawFile = event.target.files[0];
+    const files = event.target?.files;
 
-    if (!rawFile) return;
+    if (!files) return;
+
+    const rawFile = files[0];
 
     if (!rawFile.type.includes("image")) return;
 
@@ -35,7 +37,7 @@ const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
     setMessage("quick, send it to me 📨");
   };
 
-  const predictImage = (event) => {
+  const predictImage = (event: FormEvent) => {
     event.preventDefault();
     setIsLoading(true);
     setMessage("analysing the image, might take up to 2 minutes ⏳");
