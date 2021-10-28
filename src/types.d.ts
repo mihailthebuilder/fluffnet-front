@@ -6,3 +6,5 @@ type Image = {
 type Prediction = {
   prob: string;
 } | null;
+
+type StateSetter<T> = React.Dispatch<React.SetStateAction<T>>;

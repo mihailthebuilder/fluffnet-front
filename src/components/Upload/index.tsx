@@ -4,9 +4,9 @@ import "./index.scss";
 
 type Props = {
   image: Image;
-  setImage: Dispatch<React.SetStateAction<Image>>;
-  setMessage: Dispatch<React.SetStateAction<string>>;
-  setPrediction: Dispatch<React.SetStateAction<Prediction>>;
+  setImage: StateSetter<Image>;
+  setMessage: StateSetter<string>;
+  setPrediction: StateSetter<Prediction>;
 };
 
 const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
