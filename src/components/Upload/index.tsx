@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import axios from "axios";
 import "./index.scss";
 
@@ -12,9 +12,9 @@ type Props = {
 const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const uploadImage = (event) => {
+  const uploadImage = (event: ChangeEvent) => {
     setImage(null);
-    setPrediction({});
+    setPrediction(null);
     setMessage("please give me an image 🖼️");
 
     const rawFile = event.target.files[0];
