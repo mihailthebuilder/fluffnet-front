@@ -19,7 +19,8 @@ const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
 
     const files = event.target?.files;
 
-    if (!files) return;
+    // check needs to be made when upload, then upload and cancel
+    if (!files || files.length === 0) return;
 
     const rawFile = files[0];
 
