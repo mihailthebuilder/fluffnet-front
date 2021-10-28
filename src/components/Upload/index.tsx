@@ -59,9 +59,6 @@ const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
 
         const { fluffy, prob } = res.data;
 
-        if (fluffy === undefined || prob === undefined)
-          throw new Error("Undefined response", { res });
-
         const isFluffy = fluffy === "True";
 
         let probShown = Math.round(prob * 100);

@@ -7,7 +7,7 @@ type ImageState = Image | null;
 
 type Prediction = {
   prob: number;
-  fluffy: string;
+  fluffy: "True" | "False";
 };
 
 type PredictionState = Prediction | null;
