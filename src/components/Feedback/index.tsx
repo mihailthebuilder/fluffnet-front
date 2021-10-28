@@ -2,12 +2,18 @@ import { useState } from "react";
 import "./index.scss";
 import { saveFeedback } from "../../resources/fire";
 
-const Feedback = ({ prediction, rawImage }) => {
+const Feedback = ({
+  prediction,
+  rawImage,
+}: {
+  prediction: Prediction;
+  rawImage: File;
+}) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const sendFeedback = (event) => {
+  const sendFeedback = (correct: boolean) => {
     setSubmitted(true);
-    saveFeedback(rawImage, prediction, event.target.value === "correct");
+    saveFeedback(rawImage, prediction, correct);
   };
 
   return (
@@ -20,15 +26,14 @@ const Feedback = ({ prediction, rawImage }) => {
             <button
               type="button"
               className="button left"
-              onClick={sendFeedback}
-              value="correct"
+              onClick={() => sendFeedback(true)}
             >
               Correct
             </button>
             <button
+              type="button"
               className="button right"
-              onClick={sendFeedback}
-              value="incorrect"
+              onClick={() => sendFeedback(false)}
             >
               Incorrect
             </button>

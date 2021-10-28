@@ -1,25 +1,30 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import "./index.scss";
 
-const Upload = ({ image, setImage, setMessage, setPrediction }) => {
+type Props = {
+  image: ImageState;
+  setImage: StateSetter<ImageState>;
+  setMessage: StateSetter<string>;
+  setPrediction: StateSetter<PredictionState>;
+};
+
+const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const uploadImage = (event) => {
-    setImage({ preview: "", raw: "" });
-    setPrediction({});
+  const uploadImage = (event: ChangeEvent<HTMLInputElement>) => {
+    setImage(null);
+    setPrediction(null);
+    setMessage("please give me an image 🖼️");
 
-    const rawFile = event.target.files[0];
+    const files = event.target?.files;
 
-    if (rawFile === undefined) {
-      setMessage("please give me an image 🖼️");
-      return;
-    }
+    // check needs to be made when upload, then upload and cancel
+    if (!files || files.length === 0) return;
 
-    if (!rawFile.type.includes("image")) {
-      setMessage("please give me an image 🖼️");
-      return;
-    }
+    const rawFile = files[0];
+
+    if (!rawFile.type.includes("image")) return;
 
     if (rawFile.size / 1024 / 1024 >= 10) {
       setMessage("upload an image of less than 10 MB");
@@ -33,13 +38,13 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
     setMessage("quick, send it to me 📨");
   };
 
-  const predictImage = (event) => {
+  const predictImage = (event: FormEvent) => {
     event.preventDefault();
     setIsLoading(true);
     setMessage("analysing the image, might take up to 2 minutes ⏳");
 
     let fd = new FormData();
-    fd.append("image", image.raw);
+    fd.append("image", (image as Image).raw);
 
     const requestUrl =
       window.location.hostname === "localhost"
@@ -47,16 +52,13 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
         : "https://fluffnet-api.herokuapp.com";
 
     axios
-      .post(requestUrl, fd)
+      .post<Prediction>(requestUrl, fd)
       .then((res) => {
         if (res.status !== 200) {
-          throw new Error("Response status !== 200", { res });
+          throw new Error("Response status !== 200");
         }
 
         const { fluffy, prob } = res.data;
-
-        if (fluffy === undefined || prob === undefined)
-          throw new Error("Undefined response", { res });
 
         const isFluffy = fluffy === "True";
 
@@ -91,18 +93,16 @@ const Upload = ({ image, setImage, setMessage, setPrediction }) => {
           </label>
 
           <button
-            className={
-              !image.preview || isLoading ? "button" : "button submit-enabled"
-            }
+            className={!image || isLoading ? "button" : "button submit-enabled"}
             type="submit"
-            disabled={!image.preview || isLoading}
+            disabled={!image || isLoading}
           >
             {isLoading ? "Loading..." : "Submit"}
           </button>
         </form>
       </div>
       <div className="hero-right">
-        {image.preview ? (
+        {image ? (
           <img alt="" src={image.preview} />
         ) : (
           <div className="image-placeholder">Image will be shown here </div>

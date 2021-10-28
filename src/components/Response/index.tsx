@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const Response = ({ message }) => (
+const Response = ({ message }: { message: string }) => (
   <section id="results">
     <h2>
       🤖 says...
