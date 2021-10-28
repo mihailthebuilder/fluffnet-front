@@ -3,8 +3,8 @@ import axios from "axios";
 import "./index.scss";
 
 type Props = {
-  image: Image;
-  setImage: StateSetter<Image>;
+  image: ImageState;
+  setImage: StateSetter<ImageState>;
   setMessage: StateSetter<string>;
   setPrediction: StateSetter<Prediction>;
 };
@@ -43,7 +43,7 @@ const Upload = ({ image, setImage, setMessage, setPrediction }: Props) => {
     setMessage("analysing the image, might take up to 2 minutes ⏳");
 
     let fd = new FormData();
-    fd.append("image", image.raw);
+    fd.append("image", (image as Image).raw);
 
     const requestUrl =
       window.location.hostname === "localhost"

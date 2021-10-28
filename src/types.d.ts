@@ -1,7 +1,9 @@
 type Image = {
   preview: string;
   raw: File;
-} | null;
+};
+
+type ImageState = Image | null;
 
 type Prediction = {
   prob: string;

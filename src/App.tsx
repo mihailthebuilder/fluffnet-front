@@ -8,7 +8,7 @@ import Feedback from "./components/Feedback";
 import "./resources/fire";
 
 function App() {
-  const [image, setImage] = useState<Image>(null);
+  const [image, setImage] = useState<ImageState>(null);
   const [message, setMessage] = useState("gimme an image puh-leeeaase 🥺");
   const [prediction, setPrediction] = useState<Prediction>(null);
 
